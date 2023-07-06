@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do Web App</title>
+  <link rel="stylesheet" type="text/css" href="webapp.css">
+</head>
+<body background="C:\Users\Rohith\Downloads\todoappbg1.jpg">
+  <h1>To-Do List</h1>
+  <div id="container">
+    <div id="taskCreation">
+      <h2>Create Task</h2>
+      <input type="text" id="taskTitleInput" placeholder="Enter title">
+      <textarea id="taskDescriptionInput" placeholder="Enter description"></textarea>
+      <button id="saveTaskButton">Save</button>
+    </div>
+
+    <div id="taskDetails">
+      <h2>Task Details</h2>
+      <div id="taskInfo">
+        <h3>Title:</h3>
+        <p id="taskTitle"></p>
+      </div>
+      <div id="taskInfo">
+        <h3>Description:</h3>
+        <p id="taskDescription"></p>
+      </div>
+      <button id="editTaskButton">Edit</button>
+      <button id="deleteTaskButton">Delete</button>
+    </div>
+
+    <div id="tabs">
+      <button class="tabButton active" id="allTasksTab">All Tasks</button>
+    </div>
+
+    <div id="taskLists">
+      <ul id="allTasksList" class="taskList active"></ul>
+    </div>
+  </div>
+
+  <script src="webapp.js"></script>
+</body>
+</html>
