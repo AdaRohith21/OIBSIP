@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Conversion</title>
+  <style>
+    /* Add some basic styling to the UI */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-position:left;
+      background-size: cover;
+      height: 100vh;
+    }
+    h1{
+      color: darkgray;
+    }
+    h2{
+      color:darkgray
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 25px;
+      color:darkgray;
+      
+    }
+    .container {
+      max-width: 400px;
+      text-align: center;
+      border-color: black;
+    }
+
+    input[type="text"],
+    select,
+    button {
+      margin-bottom: 20px;
+      padding: 5px;
+    }
+    #result {
+      font-size:22px;
+      color: darkgray;
+    }
+
+  </style>
+</head>
+<body background="C:\Users\Rohith\Downloads\temperature background.jpg">
+  <div class="container">
+  <h1>Temperature Converter</h1>
+  <label for="temperature">Temperature:</label>
+  <input type="text" id="temperature" placeholder="Enter temperature" />
+
+  <label for="unit">Unit:</label>
+  <select id="unit">
+    <option value="celsius">Celsius</option>
+    <option value="fahrenheit">Fahrenheit</option>
+    <option value="kelvin">Kelvin</option>
+  </select>
+
+  <button onclick="convertTemperature()">Convert</button>
+
+  <h2>Converted Temperature:</h2>
+  <div id="result"></div>
+</div>
+
+  <script>
+    function convertTemperature() {
+      var temperatureInput = document.getElementById("temperature").value;
+      var unitSelect = document.getElementById("unit");
+      var unit = unitSelect.options[unitSelect.selectedIndex].value;
+
+      // Validate temperature input
+      if (isNaN(temperatureInput)) {
+        alert("Please enter a valid number for the temperature.");
+        return;
+      }
+
+      var temperature = parseFloat(temperatureInput);
+      var resultElement = document.getElementById("result");
+      var convertedTemperature, convertedUnit;
+
+      if (unit === "celsius") {
+        convertedTemperature = (temperature * 9 / 5) + 32;
+        convertedUnit = "Fahrenheit";
+      } else if (unit === "fahrenheit") {
+        convertedTemperature = (temperature - 32) * 5 / 9;
+        convertedUnit = "Celsius";
+      } else if (unit === "kelvin") {
+        convertedTemperature = temperature + 273.15;
+        convertedUnit = "Kelvin";
+      }
+
+      resultElement.textContent = convertedTemperature.toFixed(2) + " " + convertedUnit;
+    }
+  </script>
+</body>
+</html>
